@@ -1,0 +1,24 @@
+<p>Listado heores</p>
+
+<!--Con solamente poner heroeBorrado (string) alcanza para validar si es vacio o no
+    Angular ya detecta si es false, undefine, null, vacio
+-->
+<div *ngIf="heroeBorrado; else noBorrado">
+    <h2> Heroe Borrado </h2>
+    <span>{{ heroeBorrado }}</span>
+</div>
+
+<ng-template #noBorrado>
+    <h2>No se ha borrado nada</h2>
+</ng-template>
+
+
+<br>
+<button (click)="borraHeroe()">Borrar</button>
+<br>
+
+<ul>
+    <li *ngFor="let heroe of hereoes; let i = index">
+        {{ i +1 }} - {{ heroe }}
+    </li>
+</ul>
